@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="6.4">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -9,6 +9,10 @@
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
+<layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
+<layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
@@ -1246,39 +1250,6 @@ SOT23-6 package with footprint designed for easier soldering by hand.&lt;/p&gt;<
 <package name="PAD">
 <pad name="1" x="0" y="0" drill="1.016" diameter="1.8796"/>
 </package>
-<package name="SMA-DIODE">
-<description>&lt;B&gt;Diode&lt;/B&gt;&lt;p&gt;
-Basic SMA packaged diode. Good for reverse polarization protection. Common part #: MBRA140</description>
-<wire x1="-2.3" y1="1" x2="-2.3" y2="1.45" width="0.2032" layer="21"/>
-<wire x1="-2.3" y1="1.45" x2="2.3" y2="1.45" width="0.2032" layer="21"/>
-<wire x1="2.3" y1="1.45" x2="2.3" y2="1" width="0.2032" layer="21"/>
-<wire x1="2.3" y1="-1" x2="2.3" y2="-1.45" width="0.2032" layer="21"/>
-<wire x1="2.3" y1="-1.45" x2="-2.3" y2="-1.45" width="0.2032" layer="21"/>
-<wire x1="-2.3" y1="-1.45" x2="-2.3" y2="-1" width="0.2032" layer="21"/>
-<wire x1="1" y1="1" x2="1" y2="-1" width="0.2032" layer="21"/>
-<smd name="A" x="-2.15" y="0" dx="1.27" dy="1.47" layer="1" rot="R180"/>
-<smd name="C" x="2.15" y="0" dx="1.27" dy="1.47" layer="1"/>
-<text x="-2.286" y="1.651" size="0.4064" layer="25">&gt;NAME</text>
-<text x="0.254" y="1.651" size="0.4064" layer="27">&gt;VALUE</text>
-</package>
-<package name="DIODE-TH-0.4">
-<description>Diode, through-hole 0.4" spacing</description>
-<wire x1="3.175" y1="1.27" x2="1.905" y2="1.27" width="0.254" layer="21"/>
-<wire x1="1.905" y1="1.27" x2="-3.175" y2="1.27" width="0.254" layer="21"/>
-<wire x1="-3.175" y1="1.27" x2="-3.175" y2="0" width="0.254" layer="21"/>
-<wire x1="-3.175" y1="0" x2="-3.175" y2="-1.27" width="0.254" layer="21"/>
-<wire x1="-3.175" y1="-1.27" x2="1.905" y2="-1.27" width="0.254" layer="21"/>
-<wire x1="1.905" y1="-1.27" x2="3.175" y2="-1.27" width="0.254" layer="21"/>
-<wire x1="3.175" y1="-1.27" x2="3.175" y2="0" width="0.254" layer="21"/>
-<wire x1="3.175" y1="0" x2="3.175" y2="1.27" width="0.254" layer="21"/>
-<wire x1="1.905" y1="1.27" x2="1.905" y2="-1.27" width="0.254" layer="21"/>
-<wire x1="-3.175" y1="0" x2="-3.81" y2="0" width="0.254" layer="21"/>
-<wire x1="3.175" y1="0" x2="3.81" y2="0" width="0.254" layer="21"/>
-<pad name="A" x="-5.08" y="0" drill="1" diameter="1.9812"/>
-<pad name="C" x="5.08" y="0" drill="1" diameter="1.9812"/>
-<text x="-2.921" y="1.651" size="0.6096" layer="25">&gt;Name</text>
-<text x="-2.921" y="-0.508" size="1.016" layer="21" ratio="12">&gt;Value</text>
-</package>
 <package name="INDUCTOR-1206">
 <wire x1="-1.778" y1="2.032" x2="-3.81" y2="2.032" width="0.127" layer="21"/>
 <wire x1="-3.81" y1="2.032" x2="-3.81" y2="-2.032" width="0.127" layer="21"/>
@@ -1604,6 +1575,37 @@ This is a footprint for an edge mount RF antenna. Works pretty well with SMA typ
 <wire x1="0" y1="0" x2="0" y2="-3.81" width="1.524" layer="1"/>
 <text x="-2.54" y="4.445" size="1.27" layer="25">&gt;NAME</text>
 </package>
+<package name="SOT23-3-HAND">
+<wire x1="-0.7112" y1="-1.5748" x2="0.7112" y2="-1.5748" width="0.1524" layer="21"/>
+<wire x1="0.7112" y1="1.5748" x2="-0.7112" y2="1.5748" width="0.1524" layer="21"/>
+<wire x1="-0.7112" y1="-1.4986" x2="0.7112" y2="-1.4986" width="0" layer="51"/>
+<wire x1="0.7112" y1="-1.4986" x2="0.7112" y2="-0.254" width="0" layer="51"/>
+<wire x1="0.7112" y1="1.4986" x2="0.3048" y2="1.4986" width="0" layer="51"/>
+<wire x1="0.3048" y1="1.4986" x2="-0.3048" y2="1.4986" width="0" layer="51"/>
+<wire x1="-0.3048" y1="1.4986" x2="-0.7112" y2="1.4986" width="0" layer="51"/>
+<wire x1="-0.7112" y1="1.4986" x2="-0.7112" y2="1.27" width="0" layer="51"/>
+<wire x1="-0.7112" y1="1.27" x2="-0.7112" y2="0.762" width="0" layer="51"/>
+<wire x1="-0.7112" y1="0.762" x2="-0.7112" y2="-0.762" width="0" layer="51"/>
+<wire x1="-0.7112" y1="1.27" x2="-1.2446" y2="1.27" width="0" layer="51"/>
+<wire x1="-1.2446" y1="1.27" x2="-1.2446" y2="0.762" width="0" layer="51"/>
+<wire x1="-1.2446" y1="0.762" x2="-0.7112" y2="0.762" width="0" layer="51"/>
+<wire x1="-0.7112" y1="-1.4986" x2="-0.7112" y2="-1.27" width="0" layer="51"/>
+<wire x1="-0.7112" y1="-1.27" x2="-0.7112" y2="-0.762" width="0" layer="51"/>
+<wire x1="-0.7112" y1="-0.762" x2="-1.2446" y2="-0.762" width="0" layer="51"/>
+<wire x1="-1.2446" y1="-0.762" x2="-1.2446" y2="-1.27" width="0" layer="51"/>
+<wire x1="-1.2446" y1="-1.27" x2="-0.7112" y2="-1.27" width="0" layer="51"/>
+<wire x1="0.7112" y1="-0.254" x2="0.7112" y2="0.254" width="0" layer="51"/>
+<wire x1="0.7112" y1="0.254" x2="0.7112" y2="1.4986" width="0" layer="51"/>
+<wire x1="0.7112" y1="-0.254" x2="1.2446" y2="-0.254" width="0" layer="51"/>
+<wire x1="1.2446" y1="-0.254" x2="1.2446" y2="0.254" width="0" layer="51"/>
+<wire x1="1.2446" y1="0.254" x2="0.7112" y2="0.254" width="0" layer="51"/>
+<wire x1="0.3048" y1="1.4986" x2="-0.3048" y2="1.4986" width="0" layer="51" curve="-180"/>
+<smd name="1" x="-1.651" y="1.016" dx="2.5908" dy="0.5588" layer="1"/>
+<smd name="2" x="-1.651" y="-1.016" dx="2.5908" dy="0.5588" layer="1"/>
+<smd name="3" x="1.651" y="0" dx="2.5908" dy="0.5588" layer="1"/>
+<text x="-2.54" y="1.905" size="1.016" layer="25" ratio="10" rot="SR0">&gt;NAME</text>
+<text x="-2.54" y="-3.175" size="1.016" layer="27" rot="SR0">&gt;VALUE</text>
+</package>
 </packages>
 <symbols>
 <symbol name="A3L-LOC">
@@ -1830,20 +1832,6 @@ This is a footprint for an edge mount RF antenna. Works pretty well with SMA typ
 <pin name="1" x="0" y="0" visible="off" length="point"/>
 <circle x="0" y="0" radius="0.762" width="0.254" layer="94"/>
 </symbol>
-<symbol name="DIODE-SCHOTTKY">
-<wire x1="-1.27" y1="-1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
-<wire x1="1.27" y1="0" x2="-1.27" y2="1.27" width="0.254" layer="94"/>
-<wire x1="-1.27" y1="1.27" x2="-1.27" y2="-1.27" width="0.254" layer="94"/>
-<text x="2.54" y="0.4826" size="1.778" layer="95">&gt;NAME</text>
-<text x="2.54" y="-2.3114" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="A" x="-5.08" y="0" visible="off" length="middle" direction="pas"/>
-<pin name="C" x="5.08" y="0" visible="off" length="middle" direction="pas" rot="R180"/>
-<wire x1="1.27" y1="1.27" x2="1.27" y2="-1.27" width="0.254" layer="94"/>
-<wire x1="1.27" y1="1.27" x2="1.778" y2="1.27" width="0.254" layer="94"/>
-<wire x1="1.27" y1="-1.27" x2="0.762" y2="-1.27" width="0.254" layer="94"/>
-<wire x1="0.762" y1="-1.27" x2="0.762" y2="-0.762" width="0.254" layer="94"/>
-<wire x1="1.778" y1="0.762" x2="1.778" y2="1.27" width="0.254" layer="94"/>
-</symbol>
 <symbol name="C-EU">
 <wire x1="0" y1="0" x2="0" y2="-0.508" width="0.1524" layer="94"/>
 <wire x1="0" y1="-2.54" x2="0" y2="-2.032" width="0.1524" layer="94"/>
@@ -1875,6 +1863,24 @@ This is a footprint for an edge mount RF antenna. Works pretty well with SMA typ
 <pin name="SIGNAL" x="-5.08" y="0" visible="off" length="middle"/>
 <text x="5.08" y="0" size="1.27" layer="94">&gt;NAME</text>
 <text x="5.08" y="-2.54" size="1.27" layer="94">&gt;VALUE</text>
+</symbol>
+<symbol name="DIODE-PAIR-COMMON-CATHODE">
+<wire x1="-3.81" y1="1.27" x2="-1.27" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="2.54" x2="-3.81" y2="3.81" width="0.254" layer="94"/>
+<wire x1="-3.81" y1="3.81" x2="-3.81" y2="1.27" width="0.254" layer="94"/>
+<text x="-5.08" y="-7.62" size="1.778" layer="95">&gt;NAME</text>
+<pin name="A1" x="-7.62" y="2.54" visible="off" length="short" direction="pas" swaplevel="1"/>
+<pin name="C" x="5.08" y="0" visible="off" length="short" direction="pas" rot="R180"/>
+<wire x1="-1.27" y1="3.81" x2="-1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="-3.81" y1="-3.81" x2="-1.27" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="-2.54" x2="-3.81" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="-3.81" y1="-1.27" x2="-3.81" y2="-3.81" width="0.254" layer="94"/>
+<text x="-5.08" y="-10.16" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="A2" x="-7.62" y="-2.54" visible="off" length="short" direction="pas" swaplevel="1"/>
+<wire x1="-1.27" y1="-1.27" x2="-1.27" y2="-3.81" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="2.54" x2="2.54" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="-5.08" y1="-2.54" x2="2.54" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="-2.54" x2="2.54" y2="2.54" width="0.1524" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -2099,31 +2105,6 @@ A3 Larger Frame</description>
 <device name="" package="PAD">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="DIODE-SCHOTTKY" prefix="D">
-<gates>
-<gate name="G$1" symbol="DIODE-SCHOTTKY" x="0" y="0"/>
-</gates>
-<devices>
-<device name="_" package="SMA-DIODE">
-<connects>
-<connect gate="G$1" pin="A" pad="A"/>
-<connect gate="G$1" pin="C" pad="C"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="" package="DIODE-TH-0.4">
-<connects>
-<connect gate="G$1" pin="A" pad="A"/>
-<connect gate="G$1" pin="C" pad="C"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -2382,6 +2363,23 @@ Basic Inductor/Choke - 0603 and 1206. Footprints are not proven and vary greatly
 <connects>
 <connect gate="G$1" pin="GND" pad="GND@0 GND@1 GND@2 GND@3 GND@EDGE0 GND@EDGE1 GND@EDGE2 GND@EDGE3"/>
 <connect gate="G$1" pin="SIGNAL" pad="SIG SIG@EDGE"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="DIODE-PAIR-COMMON-CATHODE" uservalue="yes">
+<gates>
+<gate name="D$1" symbol="DIODE-PAIR-COMMON-CATHODE" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SOT23-3-HAND">
+<connects>
+<connect gate="D$1" pin="A1" pad="1"/>
+<connect gate="D$1" pin="A2" pad="2"/>
+<connect gate="D$1" pin="C" pad="3"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -3822,8 +3820,6 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.</description>
 <part name="JP1" library="SparkFun" deviceset="JUMPER-3" device="PTH" value=""/>
 <part name="R3" library="SteveMarple" deviceset="RESISTOR" device="1206-HAND" value="100k"/>
 <part name="R2" library="SteveMarple" deviceset="RESISTOR" device="1206-HAND" value="100k"/>
-<part name="D1" library="SteveMarple" deviceset="DIODE-SCHOTTKY" device="_"/>
-<part name="D2" library="SteveMarple" deviceset="DIODE-SCHOTTKY" device="_"/>
 <part name="JP6" library="SparkFun" deviceset="JUMPER-3" device="PTH" value="ISP VCC"/>
 <part name="P+5" library="supply1" deviceset="+5V" device=""/>
 <part name="JP4" library="pinhead" deviceset="PINHD-2X3" device="" value="ALT ISP"/>
@@ -3856,6 +3852,7 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.</description>
 <part name="JP3" library="pinhead" deviceset="PINHD-2X5" device=""/>
 <part name="C5" library="SteveMarple" deviceset="C-EU" device="1206-HAND" value="1u"/>
 <part name="C6" library="SteveMarple" deviceset="C-EU" device="1206-HAND" value="1u"/>
+<part name="DP1" library="SteveMarple" deviceset="DIODE-PAIR-COMMON-CATHODE" device="" value="BAV70"/>
 </parts>
 <sheets>
 <sheet>
@@ -3867,6 +3864,8 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.</description>
 <text x="335.28" y="127" size="2.54" layer="91">RTC battery</text>
 <text x="38.1" y="30.48" size="1.778" layer="94">Add other INT pin for Mega</text>
 <text x="38.1" y="106.68" size="1.778" layer="94">Decide upon !RESET! pin</text>
+<text x="327.66" y="165.1" size="1.778" layer="91">Use BAV70 diode, 2 Schottky
+diodes in one SOT23-3 package.</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
@@ -3898,8 +3897,6 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.</description>
 <instance part="JP1" gate="G$1" x="78.74" y="33.02" rot="MR0"/>
 <instance part="R3" gate="G$1" x="91.44" y="96.52" rot="R90"/>
 <instance part="R2" gate="G$1" x="91.44" y="66.04" rot="R90"/>
-<instance part="D1" gate="G$1" x="350.52" y="152.4"/>
-<instance part="D2" gate="G$1" x="350.52" y="157.48"/>
 <instance part="JP6" gate="G$1" x="269.24" y="170.18" rot="MR0"/>
 <instance part="P+5" gate="1" x="284.48" y="165.1" rot="R270"/>
 <instance part="JP4" gate="A" x="251.46" y="185.42" rot="MR0"/>
@@ -3932,6 +3929,7 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.</description>
 <instance part="JP3" gate="A" x="170.18" y="38.1" rot="MR0"/>
 <instance part="C5" gate="G$1" x="124.46" y="215.9"/>
 <instance part="C6" gate="G$1" x="157.48" y="215.9"/>
+<instance part="DP1" gate="D$1" x="358.14" y="154.94"/>
 </instances>
 <busses>
 </busses>
@@ -4057,9 +4055,9 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.</description>
 <wire x1="91.44" y1="78.74" x2="99.06" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="D2" gate="G$1" pin="A"/>
-<wire x1="345.44" y1="157.48" x2="337.82" y2="157.48" width="0.1524" layer="91"/>
 <label x="335.28" y="157.48" size="1.778" layer="95" rot="MR0"/>
+<pinref part="DP1" gate="D$1" pin="A1"/>
+<wire x1="350.52" y1="157.48" x2="337.82" y2="157.48" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="JP6" gate="G$1" pin="1"/>
@@ -4086,14 +4084,9 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.</description>
 <label x="195.58" y="96.52" size="1.778" layer="95" rot="R90"/>
 </segment>
 <segment>
-<pinref part="D1" gate="G$1" pin="C"/>
-<wire x1="355.6" y1="152.4" x2="358.14" y2="152.4" width="0.1524" layer="91"/>
-<label x="363.22" y="152.4" size="1.778" layer="95"/>
-<junction x="358.14" y="152.4"/>
-<wire x1="358.14" y1="152.4" x2="360.68" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="358.14" y1="152.4" x2="358.14" y2="157.48" width="0.1524" layer="91"/>
-<pinref part="D2" gate="G$1" pin="C"/>
-<wire x1="358.14" y1="157.48" x2="355.6" y2="157.48" width="0.1524" layer="91"/>
+<label x="368.3" y="154.94" size="1.778" layer="95"/>
+<pinref part="DP1" gate="D$1" pin="C"/>
+<wire x1="363.22" y1="154.94" x2="365.76" y2="154.94" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GND" class="1">
@@ -4257,9 +4250,9 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.</description>
 </net>
 <net name="VBATT" class="0">
 <segment>
-<wire x1="337.82" y1="152.4" x2="345.44" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="337.82" y1="152.4" x2="350.52" y2="152.4" width="0.1524" layer="91"/>
 <pinref part="BAT1" gate="G$1" pin="+"/>
-<pinref part="D1" gate="G$1" pin="A"/>
+<pinref part="DP1" gate="D$1" pin="A2"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -4702,4 +4695,10 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.</description>
 </sheets>
 </schematic>
 </drawing>
+<compatibility>
+<note version="6.3" minversion="6.2.2" severity="warning">
+Since Version 6.2.2 text objects can contain more than one line,
+which will not be processed correctly with this version.
+</note>
+</compatibility>
 </eagle>

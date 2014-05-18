@@ -4255,8 +4255,8 @@ diodes in one SOT23-3 package.</text>
 </segment>
 <segment>
 <label x="335.28" y="157.48" size="1.778" layer="95" rot="MR0"/>
-<pinref part="DP1" gate="D$1" pin="A1"/>
-<wire x1="350.52" y1="157.48" x2="337.82" y2="157.48" width="0.1524" layer="91"/>
+<pinref part="DP1" gate="D$1" pin="A2"/>
+<wire x1="350.52" y1="152.4" x2="337.82" y2="157.48" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="JP6" gate="G$1" pin="1"/>
@@ -4274,6 +4274,11 @@ diodes in one SOT23-3 package.</text>
 <junction x="33.02" y="76.2"/>
 <wire x1="33.02" y1="76.2" x2="33.02" y2="81.28" width="0.1524" layer="91"/>
 <label x="33.02" y="83.82" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<pinref part="U$11" gate="G$1" pin="IOREF"/>
+<wire x1="223.52" y1="152.4" x2="228.6" y2="152.4" width="0.1524" layer="91"/>
+<label x="231.14" y="152.4" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="VBAT" class="0">
@@ -4449,9 +4454,9 @@ diodes in one SOT23-3 package.</text>
 </net>
 <net name="VBATT" class="0">
 <segment>
-<wire x1="337.82" y1="152.4" x2="350.52" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="337.82" y1="152.4" x2="350.52" y2="157.48" width="0.1524" layer="91"/>
 <pinref part="BAT1" gate="G$1" pin="+"/>
-<pinref part="DP1" gate="D$1" pin="A2"/>
+<pinref part="DP1" gate="D$1" pin="A1"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -4654,12 +4659,17 @@ diodes in one SOT23-3 package.</text>
 <label x="177.8" y="177.8" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
-<net name="N$11" class="0">
+<net name="A1" class="0">
 <segment>
 <pinref part="JP1" gate="G$1" pin="1"/>
 <wire x1="93.98" y1="38.1" x2="93.98" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="93.98" y1="33.02" x2="86.36" y2="33.02" width="0.1524" layer="91"/>
 <label x="83.82" y="33.02" size="1.778" layer="95" rot="MR0"/>
+</segment>
+<segment>
+<pinref part="U$11" gate="G$1" pin="A1"/>
+<wire x1="182.88" y1="210.82" x2="177.8" y2="210.82" width="0.1524" layer="91"/>
+<label x="175.26" y="210.82" size="1.778" layer="95" rot="MR0"/>
 </segment>
 </net>
 <net name="N$6" class="0">

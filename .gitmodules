@@ -1,3 +1,3 @@
-[submodule "lbr/SteveMarple-Eagle-Library"]
+[submodule "hardware/lbr/SteveMarple-Eagle-Library"]
 	path = hardware/lbr/SteveMarple-Eagle-Library
-	url = git@github.com:stevemarple/SteveMarple-Eagle-Library.git
+	url = https://github.com/stevemarple/SteveMarple-Eagle-Library.git

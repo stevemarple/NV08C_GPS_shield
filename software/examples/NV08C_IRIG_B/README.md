@@ -14,7 +14,7 @@ used in the time calculation, as the ASCII numerical value (possibly
 hexadecimal). As the NV08C-CSM can use more than 15 satellites in its
 time calculation the time quality byte displays the ASCII characters `0`
 through to `9` for the numbers 0 to 9, `A` for 10, `F` for 15, `G` for
-16 etc. 36 or more satellites are indicated by `Z`.
+16 etc. 35 or more satellites are indicated by `Z`.
 
 In addition to the serial data stream the built-in LED is used to
 indicate the presence of the PPS signal, turning on for 125ms at the

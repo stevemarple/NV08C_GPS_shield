@@ -95,7 +95,7 @@ void formatTime(const RTCx::time_t &t, uint16_t numSat,
     satCode = '0';
   else if (numSat < 10)
     satCode = '0' + numSat; // '0' to '9'
-  else if (numSat > 36)
+  else if (numSat > 35)
     satCode = 'Z'; 
   else
     satCode = ('A' + numSat - 10); // 'A' to 'Z'

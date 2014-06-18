@@ -1,3 +1,5 @@
+#include <avr/wdt.h>
+
 #include <TinyGPS.h>
 #include <AsyncDelay.h>
 #include <Wire.h>
@@ -121,6 +123,8 @@ void formatTime(const RTCx::time_t &t, uint16_t numSat,
 
 void setup(void)
 {
+  wdt_enable(WDTO_8S);
+  
   // Set I/O as inputs with pull-ups. Leave D0 and D1 as normal INPUT
   // without pullups.
   for (uint8_t i = 2; i < NUM_DIGITAL_PINS; ++i)
@@ -168,6 +172,8 @@ void setup(void)
 
 void loop(void)
 {
+  wdt_reset();
+  
   if (ppsTriggered) {
     ledDelay.start(ledOnTime_ms, AsyncDelay::MILLIS);
     digitalWrite(LED_BUILTIN, HIGH);

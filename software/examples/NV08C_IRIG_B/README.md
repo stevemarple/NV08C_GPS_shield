@@ -21,3 +21,6 @@ indicate the presence of the PPS signal, turning on for 125ms at the
 start of each second. A 4 Hz signal on pin 8 can be used to check the
 timing accuracy (it toggles state at each step output).
 
+##Dependencies
+
+The TinyGPS library is required, https://github.com/mikalhart/TinyGPS

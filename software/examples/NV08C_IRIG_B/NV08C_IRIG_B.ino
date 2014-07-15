@@ -37,21 +37,17 @@ unsigned long maxDebugTime_ms = 300000; // 5 minutes
  * 16 LF 
  */
 
-//const char *timeFstr = "%04d-%02d-%02dT%02d:%02d:%02dZ";
-const char *timeFstr = "%02d%02d%02d%03d%02d%c\r\n";
 const int bufferLen = 20; 
 char bufferA[bufferLen] = "";
 char bufferB[bufferLen] = "";
 char *nextTime = bufferA;
 char *thisTime = bufferB;
+bool thisFixValid = false;
+bool nextFixValid = false;
 
 RTCx::time_t nextPPS = 0;
 
 volatile bool ppsTriggered = false;
-
-// Have an LED light briefly in response to the PPS.
-uint16_t ledOnTime_ms = 125;
-AsyncDelay ledDelay;
 
 // Toggle an output pin state at every step. This will be useful for
 // checking the timing and delays.
@@ -107,17 +103,16 @@ void formatTime(const RTCx::time_t &t, uint16_t numSat,
     yy = 00;
   else
     yy = (tm.tm_year + 1928) % 100;
-  if (debug) {
-    console.println();
-    console.print("tm_year: ");
-    console.println(tm.tm_year, DEC);
-    console.print("yy: ");
-    console.println(yy, DEC);
-  }
   
-  snprintf(buffer, bufferLen, timeFstr,
-	   int(tm.tm_sec),  int(tm.tm_min), int(tm.tm_hour),
-	   int(tm.tm_yday + 1), yy, satCode);
+  int ydayp1 = tm.tm_yday + 1;
+  snprintf(buffer, bufferLen,
+	   "%1d%1d%1d%1d%1d%1d%1d%1d%1d%02d%c\r\n",
+	   (tm.tm_sec % 10), (tm.tm_sec / 10),
+	   (tm.tm_min % 10), (tm.tm_min / 10),
+	   (tm.tm_hour % 10), (tm.tm_hour / 10),
+	   (ydayp1 % 10), ((ydayp1 / 10) % 10), (ydayp1 / 100),
+	   yy, satCode);
+
 }
 
 
@@ -175,8 +170,6 @@ void loop(void)
   wdt_reset();
   
   if (ppsTriggered) {
-    ledDelay.start(ledOnTime_ms, AsyncDelay::MILLIS);
-    digitalWrite(LED_BUILTIN, HIGH);
     ppsTriggered = false;
     stepCounter = 0;
 
@@ -188,20 +181,33 @@ void loop(void)
     // Invalidate data in the nextTime buffer
     *nextTime = '\0';
 
+    thisFixValid = nextFixValid;
+    nextFixValid = false;
+    
     squareWaveOut = HIGH;
   }
 
   if ((stepCounter == 0 || stepDelay.isExpired())
       && stepCounter < stepsPerSecond && *thisTime) {
+
+    digitalWrite(squareWavePin, squareWaveOut);
+    squareWaveOut = !squareWaveOut;
+
     // Start timer before sending serial data (might be slow)
     stepDelay.start(1000 / stepsPerSecond, AsyncDelay::MILLIS);
 
-    // Print step details to console
-    console.print('*');
-    console.print(stepCounter, DEC);
-    console.print(thisTime);
+    if (*thisTime) {
+      // Print step details to console
+      console.print('*');
+      console.print(stepCounter, DEC);
+      console.print(thisTime);
+    }
 
-    if (stepCounter == 0) {
+    switch (stepCounter) {
+    case 0:
+      // Turn LED on if have a valid fix
+      digitalWrite(LED_BUILTIN, thisFixValid);
+
       // Generate the next time string based on current time. This
       // occurs immediately after the string for the first time step
       // has been printed, and before any NMEA processing for the
@@ -209,10 +215,13 @@ void loop(void)
       // (eg time correction, leap seconds etc) then it will overwrite
       // this value.
       formatTime(++nextPPS, 0, nextTime, bufferLen);
-    }
+      break;
 
-    digitalWrite(squareWavePin, squareWaveOut);
-    squareWaveOut = !squareWaveOut;
+    case 1:
+      digitalWrite(LED_BUILTIN, !thisFixValid);
+      break;
+    }
+	
     ++stepCounter;
   }
   
@@ -242,7 +251,9 @@ void loop(void)
 	// Seconds since 1998, not 1970. This gives 28 years more before
 	// the unix time rollover bug kicks in, ie 2038+28 = 2066.
 	nextPPS = RTCx::mktime(tm) + 1;
+	nextFixValid = true;
 	formatTime(nextPPS, nmea.satellites(), nextTime, bufferLen);
+	
 
 	if (debug) {
 	  console.println();
@@ -271,12 +282,12 @@ void loop(void)
       else
 	console.println("Leaving debug mode");
     }
+    else if (c == 'f') {
+      console.print("MCU frequency: ");
+      console.println(F_CPU, DEC);
+    }
     else
       gps.print(c);
-  }
-
-  if (ledDelay.isExpired()) {
-    digitalWrite(LED_BUILTIN, LOW);
   }
 
   // Do not stay in debug mode permanently in case the symbol to enter

@@ -25,7 +25,7 @@ parts are accessible for soldering.
 
 The 3.3V supply for the PCB can be derived from the main 5V supply by
 using an onboard voltage regulator. In this case fit C1 (1u), C2 (1u)
-and IC1 (MCP1702-3.3). A shunt should be fitted to J1 to select the
+and IC1 (MCP1702-3.3). A shunt should be fitted to JP1 to select the
 `VREG` option. 
 
 If preferred the PCB can be powered from the 3.3V supply; fit a shunt

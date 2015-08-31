@@ -91,11 +91,11 @@ Source of the board's 3V3 power supply, which can be derived either form the Ard
 
   3V3 derived from on-board regulator:
 
-  | o=o o  JP1
+    o=o o  JP1
 
   3V3 from Arduino's 3V3 supply:
 
-  | o o=o  JP1
+    o o=o  JP1
 
 **JP2, ISP link**
 
@@ -103,11 +103,10 @@ Use 3 jumpers to link digital pins 11, 12, and 13 to the ISP header. Fit jumpers
 
   Link SPI bus to ISP header:
 
-  |  JP2
-  |
-  |  o = o
-  |  o = o
-  |  o = o
+      JP2   
+     o = o
+     o = o
+     o = o
 
 
 **JP3, ISP VCC**
@@ -116,11 +115,11 @@ Select voltage supply connected to the ISP header. On the standard Atmel ISP hea
 
   ISP header VCC connected to 5V:
   
-  | JP3  o=o o
+    JP3  o=o o
 
   ISP header VCC connected to IOREF:
   
-  | JP3  o o=o
+    JP3  o o=o
 
 
 **JP4, GPS reset**
@@ -131,7 +130,7 @@ Fit jumper to use `A0` digital pin to control the GPS !RESET input. If no jumper
 
   Serial connected to UART1:
 
-    JP5
+     JP5
     o o o
     o o o
     o=o o
@@ -140,7 +139,7 @@ Fit jumper to use `A0` digital pin to control the GPS !RESET input. If no jumper
 
   Serial1 connected to UART1:
 
-    JP5
+     JP5
     o o o
     o o o
     o o=o
@@ -149,7 +148,7 @@ Fit jumper to use `A0` digital pin to control the GPS !RESET input. If no jumper
 
   Serial connected to UART2:
 
-    JP5
+     JP5
     o=o o
     o=o o
     o o o
@@ -158,7 +157,7 @@ Fit jumper to use `A0` digital pin to control the GPS !RESET input. If no jumper
 
   Serial1 connected to UART2:
 
-    JP5
+     JP5
     o o=o
     o o=o
     o o o
@@ -180,10 +179,12 @@ Start-up Configuration option for the NV08C-CSM GPS module. From left to right t
 Fit a jumper to connect the pulse-per-second (PPS) output to digital pin 6 or 7.
 
   PPS connected to digital pin 7:
-  
-  | o=o o
+ 
+     JP8
+    o=o o
   
   PPS connected to digital pin 6:
   
-  | o o=o
+     JP8
+    o o=o
   

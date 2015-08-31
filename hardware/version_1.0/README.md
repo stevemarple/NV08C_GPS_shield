@@ -50,7 +50,7 @@ which components are fitted.
 
 ### Active antenna, 2.85V supply.
 
-Fit a zero ohm resistor (0R) in place of C12. Omit L1 and C13.
+To use the internal 2.85V supply fit a zero ohm resistor (0R) in place of C12. Omit L1, C13 and JP6.
 
 
 ### External or no power supply
@@ -82,8 +82,52 @@ to the NV08C UART1 or UART2. UART1 and UART1 can be used
 simultaneously but do not connect Serial and Serial1 to the same NV08C
 UART, it will short the Serial and Serial1 TX lines together.
 
-The diagrams below indicate the jumper position. "JP5" indicates the
+The diagrams below indicate the jumper position with a `=` marked between the jumper pins (`o`). "JPx" indicates the
 position of the silkscreen label.
+
+**JP1, 3V3 supply**
+
+Source of the board's 3V3 power supply, which can be derived either form the Arduino's 3V3 supply or regulated from the Arduino's 5V supply by on onboard MCP1703-3.3 voltate regulator. Warning: JP1 is immediately adjecent to JP6.
+
+  3V3 derived from on-board regulator:
+
+  | o=o o  JP1
+
+  3V3 from Arduino's 3V3 supply:
+
+  | o o=o  JP1
+
+**JP2, ISP link**
+
+Use 3 jumpers to link digital pins 11, 12, and 13 to the ISP header. Fit jumpers only on Arduino boards where digital pin 11 is !MOSI, 12 is !MISO, and 13 is SCK. Do not fit the jumpers when using an Arduino Mega.
+
+  Link SPI bus to ISP header:
+
+  |  JP2
+  |
+  |  o = o
+  |  o = o
+  |  o = o
+
+
+**JP3, ISP VCC**
+
+Select voltage supply connected to the ISP header. On the standard Atmel ISP header the VCC pin indicates the voltage level used for signalling. On the Arduino the ISP header is normally connected to 5V, even for boards with 3V3 output levels.
+
+  ISP header VCC connected to 5V:
+  
+  | JP3  o=o o
+
+  ISP header VCC connected to IOREF:
+  
+  | JP3  o o=o
+
+
+**JP4, GPS reset**
+
+Fit jumper to use `A0` digital pin to control the GPS !RESET input. If no jumper is fitted then to reset the NV08C-CSM the power must be cycled or a serial command sent.
+
+**JP5**
 
   Serial connected to UART1:
 
@@ -120,3 +164,26 @@ position of the silkscreen label.
     o o o
     o o o
 
+
+**JP6, GPS antenna supply voltage**
+
+Select the supply voltage for an active GPS antenna, or omit the jumper for a passive antenna. The jumper block should not be fitted if the internal 2.85V supply is to be used.
+
+
+**JP7, config**
+
+Start-up Configuration option for the NV08C-CSM GPS module. From left to right the poistions are for GPIO3-GPIO7. GPIO3-5 are pulled up to 3V3 when a jumper is fitted, GPIO6 and GPIO7 are pulled to GND when the jumper is fitted. See datasheet for more information.
+
+
+**JP8, pulse-per-second**
+
+Fit a jumper to connect the pulse-per-second (PPS) output to digital pin 6 or 7.
+
+  PPS connected to digital pin 7:
+  
+  | o=o o
+  
+  PPS connected to digital pin 6:
+  
+  | o o=o
+  
